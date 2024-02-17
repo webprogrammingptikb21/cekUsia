@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perhitungan Usia</title>
+    <style>
+      html,
+      body :root {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 15px;
+        gap: 10px;
+      }
+
+      #lahir {
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 15px;
+      }
+
+      .btn {
+        background-color: blue;
+        border: none;
+        color: white;
+        padding: 12px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: rgb(0, 0, 128);
+      }
+      label {
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .result {
+        font-size: 15px;
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Cek Usia Anda</h3>
+      <label> Masukkan tahun Kelahiran anda</label>
+      <input type="number" placeholder="contoh 2003" id="lahir" />
+      <button class="btn" onclick="checkResult()">Cek Usia</button>
+      <p class="result" id="resultView">Hasil :</p>
+    </div>
+
+    <script>
+      function checkResult() {
+        const lahirInput = document.getElementById("lahir");
+        const lahir = lahirInput.value;
+
+        const now = new Date().getFullYear(); //bernilai tahun saat ini secara otomatis
+        const age = now - lahir;
+
+        const resultView = document.getElementById("resultView");
+        resultView.innerHTML = "Usia Anda Saat ini adalah " + age;
+      }
+    </script>
+  </body>
+</html>
